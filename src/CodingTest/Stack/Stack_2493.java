@@ -27,8 +27,6 @@ public class Stack_2493 {
         boolean test;                           //신호가 잡힌 기둥이 있었는지 판단하는 변수
         int n = Integer.parseInt(br.readLine());
 
-        int[] arr = new int[n];
-
         if(n>500000 | n<1){
             System.exit(0);
         }
