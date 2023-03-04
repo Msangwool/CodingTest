@@ -1,16 +1,26 @@
 package CodingTest.BasicCode;
 
-import java.util.Scanner;
+import java.io.*;
+import java.util.StringTokenizer;
 
 public class Practice_1000 {
-    public static void main(String[] args){
-        int a,b;
 
-        Scanner sc = new Scanner(System.in);
+    static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        a = sc.nextInt();
-        b = sc.nextInt();
+    public static void main(String[] args) throws IOException {
 
-        System.out.print(a+b);
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int a, b;
+
+        a = Integer.parseInt(st.nextToken());
+        b = Integer.parseInt(st.nextToken());
+
+        if (0 > a | a > 10 | 0 > b | b > 10) {
+            return;
+        }
+
+        bw.write(a + b + "");
+        bw.close();
     }
 }
