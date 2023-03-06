@@ -1,45 +1,60 @@
 package CodingTest.BasicCode;
 
-import java.util.Scanner;
+import java.io.*;
+import java.util.StringTokenizer;
 
 public class Practice_10869 {
-    public static void main(String[] args){
-        int a,b;
 
-        Scanner sc = new Scanner(System.in);
+    static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        a = sc.nextInt();
-        b = sc.nextInt();
+    public static void main(String[] args) throws IOException {
 
-        System.out.println(add(a,b));
-        System.out.println(minus(a,b));
-        System.out.println(multiply(a,b));
-        System.out.println(divide(a,b));
-        System.out.println(share(a,b));
-    }
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        StringBuilder sb = new StringBuilder();
 
-    static int add(int a, int b){
-        return a+b;
-    }
+        int a, b;
 
-    static int minus(int a, int b){
-        return a-b;
-    }
+        a = Integer.parseInt(st.nextToken());
+        b = Integer.parseInt(st.nextToken());
 
-    static int multiply(int a, int b){
-        return a*b;
-    }
-
-    static int divide(int a, int b){
-        return a/b;
-    }
-
-    static int share(int a, int b){
-        if(b>0){
-            return a%b;
+        if (b == 0 | 1 > a | 1 > b | a > 10000 | b > 10000) {
+            return;
         }
-        else{
-            return -1;
-        }
+
+        sb
+                .append(add(a, b)).append("\n")
+                .append(minus(a, b)).append("\n")
+                .append(multiply(a, b)).append("\n")
+                .append(divide(a, b)).append("\n")
+                .append(share(a, b)).append("\n");
+
+        bw.write(sb + "");
+        bw.close();
+    }
+
+    static int add(int a, int b) {
+
+        return a + b;
+    }
+
+    static int minus(int a, int b) {
+
+        return a - b;
+    }
+
+    static int multiply(int a, int b) {
+
+        return a * b;
+    }
+
+    static int divide(int a, int b) {
+
+        return a / b;
+    }
+
+    static int share(int a, int b) {
+
+        return a % b;
     }
 }
