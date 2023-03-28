@@ -43,17 +43,24 @@ public class AthletesWhoDidNotFinish {
     static class Solution {
         public String solution(String[] participant, String[] completion) {
 
-            Arrays.sort(participant);
-            Arrays.sort(completion);
+            Map<String, Integer> map = new HashMap<>();
 
-            int i;
-            for (i = 0; i < completion.length; i++) {
-                if (!participant[i].equals(completion[i])) {
-                    return participant[i];
+            for (String player : participant) {
+                map.put(player, map.getOrDefault(player, 0) + 1);
+            }
+
+            for (String player : completion) {
+                map.put(player, map.get(player) - 1);
+            }
+
+            for (Map.Entry<String, Integer> mapEntry : map.entrySet()) {
+
+                if (mapEntry.getValue() != 0) {
+                    return mapEntry.getKey();
                 }
             }
 
-            return participant[i];
+            return "";
         }
     }
 }
