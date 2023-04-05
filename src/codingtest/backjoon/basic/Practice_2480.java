@@ -1,28 +1,33 @@
 package codingtest.backjoon.basic;
 
-import java.util.Scanner;
+import java.io.*;
+import java.util.StringTokenizer;
 
 public class Practice_2480 {
-    public static void main(String[] args){
+
+    static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+    public static void main(String[] args) throws IOException {
         int a,b,c,max;
 
-        Scanner sc = new Scanner(System.in);
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        a = sc.nextInt();
-        b = sc.nextInt();
-        c = sc.nextInt();
+        a = Integer.parseInt(st.nextToken());
+        b = Integer.parseInt(st.nextToken());
+        c = Integer.parseInt(st.nextToken());
 
         if(a==b&b==c){
-            System.out.println(10000 + a*1000);
+            bw.write(10000 + a*1000 + "");
         }
         else if(a==b&a!=c){
-            System.out.println(1000 + a*100);
+            bw.write(1000 + a*100 + "");
         }
         else if(b==c&b!=a){
-            System.out.println(1000 + b*100);
+            bw.write(1000 + b*100 + "");
         }
         else if(c==a&c!=b){
-            System.out.println(1000 + c*100);
+            bw.write(1000 + c*100 + "");
         }
         else{
             if(a>b){
@@ -31,10 +36,13 @@ public class Practice_2480 {
                 max = b;
             }
             if(max>c){
-                System.out.println(100*max);
+                bw.write(100*max + "");
             }else{
-                System.out.println(100*c);
+                bw.write(100*c + "");
             }
         }
+
+        bw.flush();
+        bw.close();
     }
 }
