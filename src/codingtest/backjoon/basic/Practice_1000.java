@@ -16,7 +16,7 @@ public class Practice_1000 {
         a = Integer.parseInt(st.nextToken());
         b = Integer.parseInt(st.nextToken());
 
-        if (0 > a | a > 10 | 0 > b | b > 10) {
+        if (0 >= a | a >= 10 | 0 >= b | b >= 10) {
             return;
         }
 
