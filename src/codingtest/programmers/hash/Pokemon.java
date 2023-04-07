@@ -1,9 +1,8 @@
 package codingtest.programmers.hash;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Stream;
 
 public class Pokemon {
     private static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -12,18 +11,14 @@ public class Pokemon {
     public static void main(String[] args) throws IOException {
         Solution solution = new Solution();
 
-        ArrayList<Integer> intArr = new ArrayList<>();
-
         String arr = br.readLine();
-        for (int i = 0; i < arr.length(); i++) {
-            if (arr.charAt(i) != '[' & arr.charAt(i) != ',' & arr.charAt(i) != ']') {
-                intArr.add(Character.getNumericValue(arr.charAt(i)));
-            }
-        }
 
-        int[] nums = intArr.stream().mapToInt(i -> i).toArray();
+        int[] phoneNumberList = Stream.of(arr
+                        .split("\\[|\\]|\\,|\"|"))
+                        .filter(c -> !Objects.equals(c, "") & !Objects.equals(c, " "))
+                        .mapToInt(Integer::parseInt).toArray();
 
-        bw.write(solution.solution(nums) + "");
+        bw.write(solution.solution(phoneNumberList) + "");
         bw.close();
     }
 
