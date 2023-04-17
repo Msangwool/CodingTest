@@ -13,10 +13,13 @@ public class Pokemon {
 
         String arr = br.readLine();
 
-        int[] phoneNumberList = Stream.of(arr
-                        .split("\\[|\\]|\\,|\"|"))
+        int[] phoneNumberList = Stream.of(arr.split("\\[|\\]|\\,|\"|"))
                         .filter(c -> !Objects.equals(c, "") & !Objects.equals(c, " "))
                         .mapToInt(Integer::parseInt).toArray();
+
+//        int[] phoneNumberList = Arrays.stream(arr.split("\\[|\\]|\\,|\"|"))
+//                .filter(c -> !Objects.equals(c, "") & !Objects.equals(c, " "))
+//                .mapToInt(Integer::parseInt).toArray();
 
         bw.write(solution.solution(phoneNumberList) + "");
         bw.close();
