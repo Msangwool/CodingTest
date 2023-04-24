@@ -1,29 +1,46 @@
 package codingtest.backjoon.basic;
 
-import java.util.Scanner;
+import java.io.*;
+import java.util.StringTokenizer;
 
 public class Practice_10871 {
-    public static void main(String[] args){
+
+    static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    public static void main(String[] args) throws IOException {
+
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
         int N, X;
 
-        Scanner sc = new Scanner(System.in);
-        N = sc.nextInt();
-        X = sc.nextInt();
+        N = Integer.parseInt(st.nextToken());
+        X = Integer.parseInt(st.nextToken());
 
         int[] intArr = new int[N];
 
+        st = new StringTokenizer(br.readLine());
+
         for(int i=0; i<N; i++){
-            intArr[i] = sc.nextInt();
+            intArr[i] = Integer.parseInt(st.nextToken());
         }
 
-        printMethod(intArr, X);
+        StringBuilder stringBuilder = printMethod(intArr, X);
+
+        bw.write(stringBuilder + "");
+        bw.flush();
+        bw.close();
     }
 
-    public static void printMethod(int[] arr, int x){
+    public static StringBuilder printMethod(int[] arr, int x){
+
+        StringBuilder sb = new StringBuilder();
+
         for(int i=0; i<arr.length; i++){
             if(arr[i]<x){
-                System.out.print(arr[i]+" ");
+                sb.append(arr[i]).append(" ");
             }
         }
+
+        return sb;
     }
 }
