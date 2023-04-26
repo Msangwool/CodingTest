@@ -1,50 +1,52 @@
 package codingtest.backjoon.basic;
 
-import java.util.Scanner;
+import java.io.*;
+import java.util.StringTokenizer;
 
 public class Practice_1267 {
-    public static void main(String[] args){
+
+    static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+    public static void main(String[] args) throws IOException {
+
+        StringBuilder sb = new StringBuilder();
         int N;
 
-        Scanner sc = new Scanner(System.in);
-
-        N = sc.nextInt();
+        N = Integer.parseInt(br.readLine());
 
         int[] arr = new int[N];
 
-        for(int i=0; i<arr.length; i++){
-            arr[i] = sc.nextInt();
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int y = youngsik(arr);
-        int m = minsik(arr);
+        int y = makeFare(arr, 30, 10);
+        int m = makeFare(arr, 60, 15);
 
-        if(y>m){
-            System.out.println("M");
-            System.out.println(m);
-        }
-        else if(y==m){
-            System.out.println("Y M");
-            System.out.println(y);
-        }
-        else{
-            System.out.println("Y");
-            System.out.println(y);
+        if (y > m) {
+            sb.append("M").append(" ");
+            sb.append(m).append("\n");
+        } else if (y == m) {
+            sb.append("Y M").append(" ");
+            sb.append(y).append("\n");
+        } else {
+            sb.append("Y").append(" ");
+            sb.append(y).append("\n");
         }
 
+        bw.write(sb + "");
+        bw.flush();
+        bw.close();
     }
-    static int youngsik(int[] arr){
+
+    static int makeFare(int[] arr, int value_1, int value_2) {
         int fee = 0;
-        for(int i=0; i<arr.length; i++){
-            fee += arr[i]/30 + 1;
+        for (int j : arr) {
+            fee += j / value_1 + 1;
         }
-        return fee * 10;
-    }
-    static int minsik(int[] arr){
-        int fee=0;
-        for(int i=0; i<arr.length; i++){
-            fee += arr[i]/60 + 1;
-        }
-        return fee * 15;
+        return fee * value_2;
     }
 }
