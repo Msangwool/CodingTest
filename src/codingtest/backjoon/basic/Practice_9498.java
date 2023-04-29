@@ -1,16 +1,17 @@
 package codingtest.backjoon.basic;
 
-import java.util.Scanner;
+import java.io.*;
 
 public class Practice_9498 {
-    public static void main(String[] args){
-        int score;
 
-        Scanner sc = new Scanner(System.in);
+    static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        score = sc.nextInt();
+    public static void main(String[] args) throws IOException {
 
-        System.out.println(scores(score));
+        bw.write(scores(Integer.parseInt(br.readLine())) + "");
+        bw.flush();
+        bw.close();
     }
 
     static char scores(int score){
