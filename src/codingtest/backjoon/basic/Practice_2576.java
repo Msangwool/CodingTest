@@ -1,20 +1,21 @@
 package codingtest.backjoon.basic;
 
-import java.util.Scanner;
+import java.io.*;
 import java.util.Arrays;
 
 public class Practice_2576 {
-    public static void main(String[] args){
+
+    static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    public static void main(String[] args) throws IOException {
         int[] arr = new int[7];
         int[] arrCopy = new int[7];
         int test=0;
         int j=0;
         int sum=0;
 
-        Scanner sc = new Scanner(System.in);
-
         for(int i =0; i<arr.length; i++){
-            arr[i] = sc.nextInt();
+            arr[i] = Integer.parseInt(br.readLine());
             if(arr[i] < 0 & arr[i] > 100){
                 return;
             }
@@ -23,9 +24,9 @@ public class Practice_2576 {
             }
         }
 
-        for(int i=0; i<arr.length; i++){
-            if(arr[i]%2==1){
-                arrCopy[j] = arr[i];
+        for (int k : arr) {
+            if (k % 2 == 1) {
+                arrCopy[j] = k;
                 sum += arrCopy[j];
                 j++;
             }
@@ -38,7 +39,10 @@ public class Practice_2576 {
 
         Arrays.sort(arrCopy);
 
-        System.out.println(sum);
-        System.out.println(arrCopy[7-j]);
+        bw.write(sum + "");
+        bw.newLine();
+        bw.write(arrCopy[7-j] + "");
+        bw.flush();
+        bw.close();
     }
 }
