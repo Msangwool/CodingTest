@@ -1,22 +1,33 @@
 package codingtest.backjoon.basic;
 
-import java.util.Scanner;
+import java.io.*;
+import java.util.StringTokenizer;
 
 public class Practice_2490 {
-    public static void main(String[] args){
+
+    static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+    public static void main(String[] args) throws IOException {
         int[][] yut = new int[3][4];
 
-        Scanner sc = new Scanner(System.in);
+        StringTokenizer st;
+        StringBuilder sb = new StringBuilder();
 
         for(int i=0; i<3; i++){
+            st = new StringTokenizer(br.readLine());
             for(int j=0; j<4; j++){
-                yut[i][j] = sc.nextInt();
+                yut[i][j] = Integer.parseInt(st.nextToken());
             }
         }
 
-        System.out.println(yutnoli(yut[0]));
-        System.out.println(yutnoli(yut[1]));
-        System.out.println(yutnoli(yut[2]));
+        sb.append(yutnoli(yut[0])).append("\n");
+        sb.append(yutnoli(yut[1])).append("\n");
+        sb.append(yutnoli(yut[2])).append("\n");
+
+        bw.write(sb + "");
+        bw.flush();
+        bw.close();
     }
 
     static char yutnoli(int[] arr){
