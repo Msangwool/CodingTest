@@ -1,19 +1,21 @@
 package codingtest.backjoon.basic;
 
+import java.io.*;
 import java.util.Scanner;
 import java.util.Arrays;
 
 public class Practice_2309 {
-    public static void main(String[] args){
+
+    static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    public static void main(String[] args) throws IOException {
+        StringBuilder sb = new StringBuilder();
         int[] arr = new int[9];
         int[] arrCopy = new int[9];
         int a=0,b=0;
         int sum = 0;
 
-        Scanner sc = new Scanner(System.in);
-
         for(int i=0; i<arr.length; i++){
-            arr[i] = sc.nextInt();
+            arr[i] = Integer.parseInt(br.readLine());
             sum += arr[i];
         }
         for(int i=0; i<9; i++){
@@ -31,7 +33,9 @@ public class Practice_2309 {
         }
         Arrays.sort(arrCopy);
         for(int i = 2; i<9; i++){
-            System.out.println(arrCopy[i]);
+            sb.append(arrCopy[i]).append("\n");
         }
+
+        System.out.println(sb);
     }
 }
