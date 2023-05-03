@@ -1,16 +1,18 @@
 package codingtest.backjoon.basic;
 
-import java.util.Scanner;
+import java.io.*;
 
 public class Practice_2562 {
-    public static void main(String[] args) {
+
+    static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    public static void main(String[] args) throws IOException {
         int[] arr = new int[9];
         int max = 0,j=0;
 
-        Scanner sc = new Scanner(System.in);
+        StringBuilder sb = new StringBuilder();
 
         for(int i=0; i<arr.length; i++){
-            arr[i] = sc.nextInt();
+            arr[i] = Integer.parseInt(br.readLine());
             if(arr[i]<1 | arr[i]>100){
                 return;
             }
@@ -19,7 +21,10 @@ public class Practice_2562 {
                 j=i;
             }
         }
-        System.out.println(max);
-        System.out.println(j+1);
+
+        sb.append(max).append("\n");
+        sb.append(j + 1);
+
+        System.out.println(sb);
     }
 }
