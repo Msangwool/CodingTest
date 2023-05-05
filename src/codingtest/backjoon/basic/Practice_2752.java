@@ -1,16 +1,20 @@
 package codingtest.backjoon.basic;
 
-import java.util.Scanner;
+import java.io.*;
 import java.util.Arrays;
+import java.util.StringTokenizer;
 
 public class Practice_2752 {
-    public static void main(String[] args){
+
+    static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    public static void main(String[] args) throws IOException {
+        StringBuilder sb = new StringBuilder();
         int[] arr = new int[3];
 
-        Scanner sc = new Scanner(System.in);
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
         for(int i =0; i<arr.length; i++){
-            arr[i] = sc.nextInt();
+            arr[i] = Integer.parseInt(st.nextToken());
             if(arr[i]>1000000 | arr[i]<1){
                 return;
             }
@@ -18,8 +22,10 @@ public class Practice_2752 {
 
         Arrays.sort(arr);
 
-        for(int i = 0; i<arr.length; i++){
-            System.out.print(arr[i] + " ");
+        for (int j : arr) {
+            sb.append(j).append(" ");
         }
+
+        System.out.println(sb);
     }
 }
