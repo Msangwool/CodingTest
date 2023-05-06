@@ -1,14 +1,16 @@
 package codingtest.backjoon.basic;
 
+import java.io.*;
 import java.util.Scanner;
 
 public class Practice_2753 {
-    public static void main(String[] args){
+
+    static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    public static void main(String[] args) throws IOException {
         int year;
 
-        Scanner sc = new Scanner(System.in);
-
-        year = sc.nextInt();
+        year = Integer.parseInt(br.readLine());
 
         if(year<1 | year>4000){
             System.out.println("한정 범위를 넘어섰습니다.");
