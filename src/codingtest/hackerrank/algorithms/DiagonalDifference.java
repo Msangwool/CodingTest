@@ -1,4 +1,4 @@
-package codingtest.hackerrank;
+package codingtest.hackerrank.algorithms;
 
 import java.io.*;
 import java.util.ArrayList;
