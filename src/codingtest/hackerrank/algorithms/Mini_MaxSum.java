@@ -18,19 +18,11 @@ public class Mini_MaxSum {
         public static void miniMaxSum(List<Integer> arr) {
             // Write your code here
 
-            Long sum = 0L;
+            Long sum = arr.stream().mapToLong(Integer::intValue).sum();
+            Long min = arr.stream().mapToLong(Integer::intValue).min().getAsLong();
+            Long max = arr.stream().mapToLong(Integer::intValue).max().getAsLong();
 
-            int min = Integer.MAX_VALUE;
-            int max = Integer.MIN_VALUE;
-
-            for (Integer num : arr) {
-                sum += num;
-                min = Math.min(min, num);
-                max = Math.max(max, num);
-            }
-
-            System.out.print(sum - max + " ");
-            System.out.println(sum - min);
+            System.out.printf("%d %d", sum - max, sum - min);
         }
     }
 
