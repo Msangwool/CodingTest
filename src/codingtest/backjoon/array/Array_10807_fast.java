@@ -16,13 +16,15 @@ public class Array_10807_fast {
 
         for(int i=0; i<N; i++){
             if(N>100 | N<0){
-                break;
+                return;
             }
             int a = Integer.parseInt(st.nextToken());
+
             if(a<-100 | a>100 | test>100 | test<-100){
-                break;
+                return;
             }
-            else if(a == test){
+
+            if(a == test){
                 count++;
             }
         }
